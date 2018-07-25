@@ -14,8 +14,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: {template: '<router-view />'},
-      // component: {template: '<keep-alive><router-view /></keep-alive>'},
+      // component: {template: '<router-view />'},
+      component: {template: '<keep-alive include="about-component"><router-view /></keep-alive>'},
       children: [
         {
           path: '',
@@ -30,10 +30,7 @@ export default new Router({
         {
           path: '/about',
           name: 'about',
-          component: about,
-          meta: {
-            keepAlive: true
-          }
+          component: about
         },
         {
           path: '/child',

@@ -8,10 +8,13 @@
          <router-link to="/about">关于我们</router-link>
       </li>
     </ul>
-    <keep-alive>
+    <!-- <keep-alive>
       <router-view v-if="$route.meta.keepAlive"></router-view>
     </keep-alive>
-    <router-view v-if="!$route.meta.keepAlive"></router-view>
+    <router-view v-if="!$route.meta.keepAlive"></router-view> -->
+    <!-- <keep-alive exclude='about'> -->
+      <router-view/>
+    <!-- </keep-alive> -->
     <!-- <router-view/> -->
   </div>
 </template>

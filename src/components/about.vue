@@ -11,6 +11,7 @@
 </template>
 <script>
 export default {
+  name: 'about-component',
   created() {
     console.log('about --- keepalive');
   }
