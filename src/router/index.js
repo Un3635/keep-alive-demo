@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import home from '@/components/home';
 import about from '@/components/about';
 
+import child from '@/components/child/child';
 import listOne from '@/components/child/listOne';
 import listTwo from '@/components/child/listTwo';
 
@@ -13,8 +14,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      // component: {template: '<router-view />'},
-      component: {template: '<keep-alive><router-view /></keep-alive>'},
+      component: {template: '<router-view />'},
+      // component: {template: '<keep-alive><router-view /></keep-alive>'},
       children: [
         {
           path: '',
@@ -29,7 +30,15 @@ export default new Router({
         {
           path: '/about',
           name: 'about',
-          component: about
+          component: about,
+          meta: {
+            keepAlive: true
+          }
+        },
+        {
+          path: '/child',
+          name: 'child',
+          component: child
         },
         {
           path: '/one',
