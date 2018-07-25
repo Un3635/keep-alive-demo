@@ -8,15 +8,16 @@
          <router-link to="/about">关于我们</router-link>
       </li>
     </ul>
-    <keep-alive>
-      <router-view/>
-    </keep-alive>
+    <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  created() {
+    console.log('app');
+  }
 };
 </script>
 

@@ -13,8 +13,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: {template: '<router-view />'},
-      // component: home,
+      // component: {template: '<router-view />'},
+      component: {template: '<keep-alive><router-view /></keep-alive>'},
       children: [
         {
           path: '',
