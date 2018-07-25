@@ -2,6 +2,7 @@
 
 > A Vue.js project
 ## 失败的原因 》未注意 路由中的 router-view
+## 缓存部分组件 》 在 router 中设置meta: {keepAlive: true}即可
 ## Build Setup
 
 ``` bash
