@@ -1,7 +1,7 @@
 # keepalive
 
 > A Vue.js project
-
+## 失败的原因 》未注意 路由中的 router-view
 ## Build Setup
 
 ``` bash
