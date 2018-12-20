@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+// import header from '@/components/header';
 import home from '@/components/home';
 import about from '@/components/about';
 
@@ -14,23 +15,32 @@ export default new Router({
   routes: [
     {
       path: '/',
-      // component: {template: '<router-view />'},
-      component: {template: '<keep-alive include="about-component"><router-view /></keep-alive>'},
+      component: {template: '<router-view />'},
+      // name: 'header',
+      // component: header,
+      // component: {template: '<keep-alive include="about-component"><router-view /></keep-alive>'},
       children: [
+        // {
+        //   path: '',
+        //   name: 'header',
+        //   component: header
+        // },
         {
           path: '',
+          redirect: 'home'
+        },
+        {
+          path: 'home',
           name: 'home',
           component: home
         },
         {
-          path: '/home',
-          name: 'home',
-          component: home
-        },
-        {
-          path: '/about',
+          path: 'about',
           name: 'about',
-          component: about
+          component: about,
+          meta: {
+            keepAlive: true
+          }
         },
         {
           path: '/child',
@@ -49,5 +59,20 @@ export default new Router({
         }
       ]
     }
-  ]
+  ],
+  scrollBehavior(to, from, savePosition) {
+    // 这个行为只能在 HTML5 history 下才可以用
+    // 保存在meta 备用
+    to.meta.savePosition = savePosition;
+    if (savePosition) {
+      return { x: 0, y: 0 };
+    }
+    return {};
+    // return {x: 0, y: 0};
+    // if (to.hash) {
+    //   return {
+    //     selector: to.hash
+    //   }
+    // }
+  }
 });

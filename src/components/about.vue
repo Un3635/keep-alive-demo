@@ -19,11 +19,37 @@ export default {
     };
   },
   created() {
-    console.log('about --- keepalive');
+    console.log('about --- created');
+  },
+  methods: {
+    getData() {
+      let p1 = new Promise((resolve, reject) => {
+        resolve('success1');
+      });
+      let p2 = new Promise((resolve, reject) => {
+        resolve('success2');
+      });
+      Promise.all([p1, p2]).then((res) => {
+        console.log(res);
+      }).catch(() => {
+        console.log('erro');
+      });
+    }
   },
   activated() {
     // keep-alive 才能触发这个钩子
-    console.log(this.inputVal);
+    console.log('activated');
+  },
+  beforeRouteEnter(to, from, next) {
+    // 浏览器 前进 后退使用 keep-alive
+    next(vm => {
+      // console.log(to.meta.savePosition);
+      if (to.meta.savePosition === undefined) {
+        vm.getData();
+      } else if (to.meta.savePosition === null) {
+        vm.getData();
+      }
+    });
   }
 };
 </script>
