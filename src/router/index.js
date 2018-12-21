@@ -27,20 +27,7 @@ export default new Router({
         // },
         {
           path: '',
-          redirect: 'home'
-        },
-        {
-          path: 'home',
-          name: 'home',
-          component: home
-        },
-        {
-          path: 'about',
-          name: 'about',
-          component: about,
-          meta: {
-            keepAlive: true
-          }
+          redirect: '/home'
         },
         {
           path: '/child',
@@ -58,6 +45,16 @@ export default new Router({
           component: listTwo
         }
       ]
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: home
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: about
     }
   ],
   scrollBehavior(to, from, savePosition) {

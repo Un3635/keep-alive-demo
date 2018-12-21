@@ -4,6 +4,19 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 
+import footerDom from './components/common/footer';
+
+const components = [footerDom];
+const footer = {
+  install() {
+    components.forEach(component => {
+      console.log(component);
+      Vue.component(component.name, component);
+    });
+  }
+};
+Vue.use(footer);
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

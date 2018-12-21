@@ -1,6 +1,8 @@
 <template>
 <!-- <keep-alive> -->
   <div>
+    <footer-dom />
+    <header-box count="123关于"></header-box>
     <ul>
       <li v-for="index in 15" :key="index">
           <router-link :to="{path:'/child', query: {id: index}}">关于我们{{index}}</router-link>
@@ -11,6 +13,7 @@
   <!-- </keep-alive> -->
 </template>
 <script>
+import HeaderBox from './header.vue';
 export default {
   name: 'about-component',
   data() {
@@ -50,6 +53,9 @@ export default {
         vm.getData();
       }
     });
+  },
+  components: {
+    HeaderBox
   }
 };
 </script>
