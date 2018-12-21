@@ -59,6 +59,7 @@
  <nuxt keep-alive/> // 目前只查到这种方法，所有的路由进行缓存， 而且其数据会被清空，只能用一个暂时的数据进行缓存，未找到其他可行的方法，详情见 nuxt-project中的calcstar
  
 ```
+##### 在main.js 中有注册全局组件的方法
 
 ## Build Setup
 
